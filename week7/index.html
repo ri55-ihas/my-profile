@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>week7</title>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-stone-50 border border-stone-200 p-6 max-w-md w-full mx-auto text-stone-700">
+        <h1 class="text-base font-medium tracking-widest text-stone-800 uppercase mb-4">To Do</h1>
+
+        <div class="flex gap-2 mb-4">
+            <input
+            id="taskInput"
+            type="text" 
+            placeholder="タスクを入力..." 
+            class="flex-1 bg-white border border-stone-300 p-2 text-sm text-stone-800 placeholder-stone-400 focus:outline-none focus:border-stone-500 transition"
+            >
+            <button id="addButton" class="bg-stone-700 hover:bg-stone-800 text-stone-100 text-xs px-3 py-2 transition shrink-0 cursor-pointer">
+            追加
+            </button>
+        </div>
+
+        <ul id="todoLIst" class="divide-y divide-stone-200 border-t border-b border-stone-200 list-none p-0 my-0"></ul>
+    </div>
+
+    <script>
+        const addButton = document.querySelector("#addButton");
+        const taskInput = document.querySelector("#taskInput");
+
+        addButton.addEventListener("click", () => {
+        const taskText = taskInput.value.trim();
+        if (!taskText) return;
+
+        const item = document.createElement("li");
+        item.className="py-2.5 flex items-center justify-between gap-3";
+
+        const textBox = document.createElement("span");
+        textBox.textContent = taskText;
+        textBox.className = "text-xs text-stone-800 truncate"
+
+        const kanButton = document.createElement("button");
+        kanButton.textContent = "完了";
+        kanButton.className = "text-xs text-stone-400 hover:text-stone-700 cursor-pointer px-1";
+        kanButton.addEventListener("click",()=>{
+            textBox.classList.add("line-through");
+        });
+
+        const todoLIst = document.querySelector("#todoLIst");
+
+        item.appendChild(textBox);
+        item.appendChild(kanButton);
+        todoLIst.appendChild(item);
+
+        taskInput.value = "";
+        }
+        );
+    </script>
+</body>
+</html>
