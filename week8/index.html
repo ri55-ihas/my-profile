@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen p-6 md:p-12">
+<div class="max-w-6xl mx-auto">
+
+    <header class="mb-10 text-center md:text-left">
+        <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Team Members</h1>
+        <p class="text-slate-500 mt-2">プロジェクトに携わるチームメンバーの一覧です。</p>
+    </header>
+
+    <div id="member-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+<script>
+let members = [
+{
+    id: 1,
+    name: "佐藤 匠",
+    yoMi: "さとう たくみ", 
+    role: "フロントエンドエンジニア",
+    comment: "UI/UXの改善と、快適なWeb体験の構築が得意です。"
+},
+{
+    id: 2,
+    name: "鈴木 葵",
+    yoMi: "すずき あおい",
+    role: "UI/UXデザイナー",
+    comment: "ユーザー視点に立った、シンプルで美しく使いやすいデザインを追求しています。"
+},
+{
+    id: 3,
+    name: "高橋 陸",
+    yoMi: "たかはし りく",
+    role: "バックエンドエンジニア",
+    comment: "安全で拡張性の高いAPI設計とデータベース構築を担当しています。"
+},
+{
+    id: 4,
+    name: "田中 結衣",
+    yoMi: "たなか ゆい",
+    role: "プロダクトマネージャー",
+    comment: "チーム全体のロードマップ管理と、スムーズなプロジェクト進行をサポートします。"
+},
+{
+    id: 5,
+    name: "伊藤 健太",
+    yoMi: "いとう けんた",
+    role: "QAエンジニア",
+    comment: "品質管理とテスト自動化を通じて、プロダクトの信頼性を高めています。"
+}
+];
+
+const render = () => {
+    const memberList = document.querySelector("#member-list");
+    members = members.slice().sort((a,b)=>{
+        return a.yoMi.localeCompare(b.yoMi,"ja");
+        });
+
+        memberList.innerHTML = members.map((member)=>{
+        return`
+        <div class="member-card bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 border border-slate-200/80 p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex items-start justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">${member.name}</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">${member.yoMi}</p>
+                </div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">${member.role}</span>
+                </div>
+            <p class="text-slate-600 text-sm mt-4 leading-relaxed">${member.comment}</p>
+            </div>
+        </div>
+        `}).join("");
+    };
+
+render();
+</script>
+</body>
+</html>
