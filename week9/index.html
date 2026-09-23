@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="min-h-screen bg-gray-100 flex justify-center items-center">
+    <div class="bg-stone-50 border border-stone-200 p-6 max-w-xl w-full mx-auto text-stone-700">
+        <h1 class="text-base font-medium tracking-widest text-stone-800 uppercase mb-4">新規登録</h1>
+
+        <form id="signupForm" class="space-y-4" novalidate>
+        <div class="mb-4">
+            <label class="mr-10">ユーザー名</label>
+            <input
+            id="nameInput"
+            type="text"
+            required
+            placeholder="名前を入力..." 
+            class="flex-1 bg-white border border-stone-300 p-2 text-sm text-stone-800 placeholder-stone-400 focus:outline-none focus:border-stone-500 transition"
+            >        
+        </div>
+        <P id="nameError" class="text-red-500 text-sm font-medium"></P>
+        
+        <div class="flex gap-2 mb-4">
+            <label class="mr-4">メールアドレス</label>
+                <input
+                id="emailInput"
+                type="email" 
+                required
+                placeholder="メールアドレスを入力..." 
+                class="flex-1 bg-white border border-stone-300 p-2 text-sm text-stone-800 placeholder-stone-400 focus:outline-none focus:border-stone-500 transition"
+                >
+        </div>
+        <p id="mailError" class="text-red-500 text-sm font-medium"></p>
+
+        <div class="flex gap-2 mb-4">
+            <label class="mr-10">パスワード</label>
+                <input
+                id="passInput"
+                type="text" 
+                required
+                placeholder="パスワードを入力..." 
+                class="flex-1 bg-white border border-stone-300 p-2 text-sm text-stone-800 placeholder-stone-400 focus:outline-none focus:border-stone-500 transition"
+                >
+        </div>
+        <p id="passError" class="text-red-500 text-sm font-medium"></p>
+
+        <div class="flex gap-2 mb-6">
+            <label class="mr-2">利用規約同意</label>
+                
+            <div class="mx-auto max-w-md rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+                <p class="mt-1 text-xs text-stone-500">サービスをご利用いただくには以下の利用規約をお読みください。</p>
+
+                <div class="mt-4 h-36 overflow-y-auto rounded-lg border border-stone-200 bg-stone-50 p-3 text-xs leading-relaxed text-stone-600 mb-6">
+                    <p class="font-bold text-stone-800 mb-1">第1条（適用）</p>
+                    <p class="mb-3">本規約は、ユーザーと当サービスとの間の利用に関わる一切の関係に適用されます。</p>
+                    <p class="font-bold text-stone-800 mb-1">第2条（禁止事項）</p>
+                    <p class="mb-3">ユーザーは、本サービスの利用にあたり、法令または公序良俗に違反する行為をしてはなりません。</p>
+                    <p class="font-bold text-stone-800 mb-1">第3条（免責事項）</p>
+                    <p>当サービスの利用により生じた損害について、当社は一切の責任を負わないものとします。</p>
+                </div>
+
+                <div>
+                <div class="flex items-center justify-center gap-3">
+                <p class="font-bold hover:text-stone-900">利用規約に同意する</p>
+                <input
+                id="agree"
+                type="checkbox"
+                required
+                class="h-4 w-4 rounded border-stone-300 accent-stone-900 focus:ring-stone-500 focus:ring-offset-0 cursor-pointer"
+                >
+                </div>
+                <p id="KiYaKuError" class="text-red-500 text-center"></p>
+                </div>
+            </div>
+
+            
+        </div>
+    
+        <button 
+        type="submit"
+        class="block w-full mx-auto max-w-sm rounded-lg bg-stone-900 py-2.5 text-xs font-bold text-white transition-all mb-4 hover:bg-stone-800">登録</button>
+        </form>
+
+        <p id="message" class="text-green-600 text-sm font-medium"></p>
+    </div>
+
+    <script>
+        const signupForm = document.querySelector("#signupForm");
+        const message = document.querySelector("#message");
+        const nameError = document.querySelector("#nameError");
+        const mailError = document.querySelector("#mailError");
+        const passError = document.querySelector("#passError");
+        const KiYaKuError = document.querySelector("#KiYaKuError")
+        
+        
+        const nameInput = document.querySelector("#nameInput");
+        const emailInput = document.querySelector("#emailInput");
+        const passInput = document.querySelector("#passInput");
+
+
+        signupForm.addEventListener("submit",(event)=>{
+            event.preventDefault();
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const pass = passInput.value;
+            const agree = document.querySelector("#agree")
+
+            nameError.textContent = "";
+            mailError.textContent = "";
+            passError.textContent = "";
+            KiYaKuError.textContent = "";
+            message.textContent = "";
+
+            if(name===""){
+                nameError.textContent = "名前を入力してください";
+                return;
+            };
+
+            if(email===""){
+                mailError.textContent = "eメールを入力してください";
+                return;
+            };
+
+            if(pass===""){
+                passError.textContent = "パスワードを入力してください";
+                return;
+            };
+
+            if(pass.length < 8){
+                passError.textContent = "パスワードは８文字以上です";
+                return;
+            };
+
+            if(!agree.checked){
+                KiYaKuError.textContent = "利用規約に同意してください";
+                return;
+            };
+
+            message.textContent = "登録完了！ようこそ、" + name + " さん！"
+            signupForm.reset();
+        });
+
+    </script>
+</body>
+</html>
