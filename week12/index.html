@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-100 pt-10">
+    <header class="flex justify- items-center max-w-2xl w-full mx-auto text-stone-700 p-6 border-b-4 border-stone-300">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+    <div class="flex flex-col items-start">
+        <p class="bg-gray-700 text-xs text-white font-bold rounded-full uppercase tracking-wider py-1 px-2 text-center mb-1">ニックネーム</p>
+        <h3 class="text-2xl font-bold mb-2 tracking-tight cursor-default hover:scale-110 transition-all duration-300">りっくん、ひだりく</h3>
+    </div>
+    <div class="flex flex-col items-start">
+        <p class="bg-gray-700 text-xs text-white font-bold rounded-full uppercase tracking-wider py-1 px-2 text-center mb-1">キャッチコピー</p>
+        <p class="text-2xl font-semibold mb-2 tracking-tight cursor-default hover:scale-110 transition-all duration-300">強くなりたい</p>
+    </div>
+    </div>
+    </header>
+
+    <main  class="p-6 max-w-2xl w-full mx-auto text-stone-700">
+        <div class="relative group shadow-md rounded border border-stone-700 p-4 mb-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <h1 class="text-2xl font-bold tracking-widest mb-2">自己紹介</h1>
+            <p class="text-stone-600 text-md leading-relaxed">文系出身で、プログラミングコミュニティPOSSEでWeb制作を学んでいます。<br>完全な理解を求める完璧主義者</p>
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-white font-bold">詳細を見る</span>
+            </div>
+        </div>
+        <div class="p-4">
+            <h1 class="text-2xl font-bold tracking-widest mb-5">スキル</h1>
+            <ul class="flex flex-wrap gap-4">
+                    <li class="font-mono text-sm px-4 py-2 rounded-full cursor-default border border-gray-300">HTML / CSS</li>
+                    <li class="font-mono text-sm px-4 py-2 rounded-full cursor-default border border-gray-300">JavaScript</li>
+                    <li class="font-mono text-sm px-4 py-2 rounded-full cursor-default border border-gray-300">Tailwind CSS</li>
+                    <li class="font-mono text-sm px-4 py-2 rounded-full cursor-default border border-gray-300">Git / GitHub</li>
+                    <li class="font-mono text-sm px-4 py-2 rounded-full cursor-default border border-gray-300">レスポンシブデザイン</li>
+                    <li class="font-mono text-sm px-4 py-2 rounded-full cursor-default border border-gray-300">要件定義</li>
+            </ul>
+        </div>
+    </main>
+
+    <div class="max-w-2xl mx-auto p-6">
+    <h1 class="text-2xl font-bold text-stone-700 tracking-widest mb-4">作品</h1>
+    <section class="splide" aria-label="画像スライダー">
+    <div class="splide__track">
+    <ul class="splide__list">
+        <li class="splide__slide">
+            <img src="./img/S__86327412.jpg" alt="画像1" class="max-w-2xl mx-auto">
+        </li>
+        <li class="splide__slide">
+            <img src="./img/S__86327415.jpg" alt="画像2" class="max-w-2xl mx-auto">
+        </li>
+        <li class="splide__slide">
+            <img src="./img/S__86327347_0.jpg" alt="画像3" class="max-w-2xl mx-auto">
+        </li>
+    </ul>
+    </div>
+    </section>
+    </div>
+
+    <footer class="border-t border-stone-400 max-w-2xl mx-auto">
+        <div class="flex gap-6 justify-center mb-12 mt-8">
+        <a href="#" class="text-sm text-stone-500 font-bold">Git Hub</a>
+        <a href="#" class="text-sm text-stone-500 font-bold">Email</a>
+        <a href="#" class="text-sm text-stone-500 font-bold">X</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>new Splide('.splide').mount();</script>
+</body>
+</html>
